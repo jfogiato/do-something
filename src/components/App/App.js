@@ -1,15 +1,23 @@
 import './App.css';
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { Header } from '../Header/Header';
-import { FormPage } from '../FormPage/FormPage';
+import Home from '../Home/Home';
+import Header from '../Header/Header';
+import FormPage from '../FormPage/FormPage';
+import YouCould from '../YouCould/YouCould';
+import YouDid from '../YouDid/YouDid';
+import testData from '../../data/testData';
 
-export const App = () => {
+const App = () => {
   return (
-    <main className="App">
-      <Header />
+    <main>
       <Home />
-      <FormPage />
+      {/* <Header /> */}
+      {/* <FormPage /> */}
+      {/* <YouCould /> */}
+      {/* <YouDid /> */}
     </main>
   );
 }
+
+export default App;

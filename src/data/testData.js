@@ -1,4 +1,4 @@
-export const activities = [
+const activities = [
   {
     "activity": "Think of a new business idea",
     "type": "recreational",
@@ -36,3 +36,5 @@ export const activities = [
     "accessibility": 0
   }
 ]
+
+export default activities;

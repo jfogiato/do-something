@@ -4,7 +4,9 @@
   --primary-font-lgt-wght: 100;
   --secondary-font: 'Dongle', sans-serif;
   --primary-color: #F8F2E9;
+  --secondary-color: rgb(200, 200, 200);
   --primary-font-color: black;
+  --border-radius: 5px;
 }
 
 html {
@@ -22,9 +24,10 @@ body {
 }
 
 .uni-btn {
+  font-family: var(--secondary-font);
   background-color: white;
   padding: .5vmin;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   transition: background-color .5s ease;
   text-decoration: none;
   color: var(--primary-font-color)

@@ -37,7 +37,7 @@ const FormPage = () => {
   ;
 
   return (
-    <form>
+    <form className='form-page'>
       <h2>I want {activitiesDrop} activity that I can do {participantsDrop} and it should be {costDrop}.</h2>
       <button type='submit' className='uni-btn'>What can I do?</button>
     </form>

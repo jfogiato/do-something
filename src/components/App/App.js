@@ -14,8 +14,8 @@ const App = () => {
       {/* <Home /> */}
       <Header />
       {/* <FormPage /> */}
-      <YouCould activityObject={testData[0]}/>
-      {/* <YouDid /> */}
+      {/* <YouCould activityObject={testData[0]}/> */}
+      <YouDid activitiesData={testData}/>
     </main>
   );
 }

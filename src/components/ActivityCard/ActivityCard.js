@@ -5,6 +5,11 @@ const ActivityCard = ({ activityData }) => {
   const [done, setDone] = useState(false);
   const [active, setActive] = useState(false);
 
+  const toggleDone = () => {
+    setDone(!done); 
+    setActive(!active);
+  }
+
   const pendingIcon = 
     <span 
       className="material-symbols-outlined"
@@ -32,7 +37,7 @@ const ActivityCard = ({ activityData }) => {
   const didBtn =
     <div className='did'>
       {cancelIcon}
-      <button className='uni-btn' onClick={() => {setDone(!done); setActive(!active);}}>
+      <button className='uni-btn' onClick={toggleDone}>
         {done ? 'Didn\'t do it.' : 'Did it.'}
       </button>
     </div>
@@ -40,7 +45,7 @@ const ActivityCard = ({ activityData }) => {
 
   return (
     <div className='activity' key={activityData.key}>
-      <p>{activityData.activity}</p>
+      <p className={done && 'line-style'}>{activityData.activity}</p>
       {active ? didBtn : done ? doneIcon : pendingIcon}
     </div>
   );

@@ -9,7 +9,7 @@ const Home = () => {
       <h2 className='blurb-one'>Feeling stuck, bored, unproductive, unmotivated or otherwise uninspired?</h2>
       <p className='blurb-two'>Choose your constraints.</p>
       <p className='blurb-two'>Select an activity.</p>
-      <Link className='uni-btn'>Do Something.</Link>
+      <Link to='/i-want-to' className='uni-btn'>Do Something.</Link>
     </div>
   );
 }

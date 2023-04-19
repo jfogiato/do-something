@@ -30,7 +30,8 @@ body {
   border-radius: var(--border-radius);
   transition: background-color .5s ease;
   text-decoration: none;
-  color: var(--primary-font-color)
+  color: var(--primary-font-color);
+  text-align: center;
 }
 
 .unit-btn:hover {

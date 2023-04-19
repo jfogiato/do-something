@@ -1,8 +1,14 @@
 import React from 'react';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
-export const Header = () => {
+const Header = () => {
   return (
-    <div>Header</div>
+    <header>
+      <Link className='link'>Do Something.</Link>
+      <Link className='link'>Do Something Else.</Link>
+    </header>
   );
 }
+
+export default Header;

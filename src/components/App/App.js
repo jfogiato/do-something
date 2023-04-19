@@ -11,9 +11,9 @@ import testData from '../../data/testData';
 const App = () => {
   return (
     <main>
-      <Home />
-      {/* <Header /> */}
-      {/* <FormPage /> */}
+      {/* <Home /> */}
+      <Header />
+      <FormPage />
       {/* <YouCould /> */}
       {/* <YouDid /> */}
     </main>

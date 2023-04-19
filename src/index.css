@@ -1,13 +1,43 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --primary-font: 'Kanit', sans-serif;
+  --primary-font-hvy-wght: 400;
+  --primary-font-lgt-wght: 100;
+  --secondary-font: 'Dongle', sans-serif;
+  --primary-color: #F8F2E9;
+  --secondary-color: rgb(200, 200, 200);
+  --primary-font-color: black;
+  --border-radius: 5px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--primary-color);
+}
+
+.uni-btn {
+  font-family: var(--secondary-font);
+  background-color: white;
+  padding: .5vmin;
+  border-radius: var(--border-radius);
+  transition: background-color .5s ease;
+  text-decoration: none;
+  color: var(--primary-font-color)
+}
+
+.unit-btn:hover {
+  background-color: blue;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--primary-font-color)
 }

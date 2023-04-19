@@ -1,0 +1,27 @@
+.you-could {
+  font-family: var(--secondary-font);
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.you-could > h2 {
+  margin-bottom: 10vmin;
+}
+
+.activity-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-color);
+  width: 25vw;
+  padding: 2vmin;
+  border-radius: var(--border-radius);
+}
+
+.activity-choose-form {
+  display: flex;
+  justify-content: space-evenly;
+}

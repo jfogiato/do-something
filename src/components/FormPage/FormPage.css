@@ -1,0 +1,11 @@
+.form-page {
+  font-family: var(--secondary-font);
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}

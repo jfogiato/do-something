@@ -1,0 +1,15 @@
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 15vh;
+  border-bottom: 2px solid var(--primary-font-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vmin;
+  font-family: var(--primary-font);
+  background-color: var(--primary-color);
+  font-size: 5vmin;
+}

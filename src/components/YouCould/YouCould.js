@@ -1,5 +1,6 @@
 import React from 'react';
 import './YouCould.css';
+import { Link } from 'react-router-dom';
 
 
 const YouCould = ({ activityObject }) => {
@@ -13,8 +14,8 @@ const YouCould = ({ activityObject }) => {
         <h3>{activity}</h3>
         {link !== '' && <p>{link}</p>}
         <form className='activity-choose-form'>
-          <button className='uni-btn'>Do it.</button>
-          <button className='uni-btn'>Nah.</button>
+          <Link to='/you-did' className='uni-btn'>Do it.</Link>
+          <Link to='/i-want-to' className='uni-btn'>Nah.</Link>
         </form>
       </div>
     </section>

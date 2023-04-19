@@ -11,11 +11,11 @@ import testData from '../../data/testData';
 const App = () => {
   return (
     <main>
-      {/* <Home /> */}
       <Header />
-      {/* <FormPage /> */}
-      {/* <YouCould activityObject={testData[0]}/> */}
-      <YouDid activitiesData={testData}/>
+      <Route exact path='/' component={Home}/>
+      <Route exact path='/i-want-to' component={FormPage}/>
+      <Route exact path='/you-could-do' render={() => <YouCould activityObject={testData[0]}/>}/>
+      <Route exact path='/you-did' render={() => <YouDid activitiesData={testData}/>}/>
     </main>
   );
 }

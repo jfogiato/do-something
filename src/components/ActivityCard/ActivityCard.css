@@ -16,3 +16,28 @@
 .activity > p, span {
   margin: 0;
 }
+
+.did {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.did > button {
+  display: flex;
+  height: 4vmin;
+  margin-left: 1.5vmin;
+}
+
+.material-symbols-outlined {
+  cursor: pointer;
+}
+
+.material-symbols-outlined:hover {
+  transform: scale(1.3);
+}
+
+.line-style {
+  text-decoration: line-through;
+}

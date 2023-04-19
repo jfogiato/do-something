@@ -11,10 +11,10 @@ import testData from '../../data/testData';
 const App = () => {
   return (
     <main>
-      <Home />
+      {/* <Home /> */}
       <Header />
-      <FormPage />
-      <YouCould activityObject={testData[0]}/>
+      {/* <FormPage /> */}
+      {/* <YouCould activityObject={testData[0]}/> */}
       <YouDid activitiesData={testData}/>
     </main>
   );

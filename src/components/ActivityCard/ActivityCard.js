@@ -3,32 +3,52 @@ import './ActivityCard.css';
 
 const ActivityCard = ({ activityData }) => {
   const [done, setDone] = useState(false);
+  const [active, setActive] = useState(false);
+
+  const toggleDone = () => {
+    setDone(!done); 
+    setActive(!active);
+  }
 
   const pendingIcon = 
     <span 
-      class="material-symbols-outlined"
-    >
-      pending
+      className="material-symbols-outlined"
+      onClick={() => setActive(!active)}
+    >pending
     </span>
   ;
 
   const doneIcon = 
     <span 
-      class="material-symbols-outlined"
-    >
-      check_circle
+      className="material-symbols-outlined"
+      onClick={() => setActive(!active)}
+    >check_circle
     </span>
+  ;
+
+  const cancelIcon =
+    <span
+      class="material-symbols-outlined"
+      onClick={() => setActive(!active)}
+    >arrow_back
+    </span>
+  ;
+
+  const didBtn =
+    <div className='did'>
+      {cancelIcon}
+      <button className='uni-btn' onClick={toggleDone}>
+        {done ? 'Didn\'t do it.' : 'Did it.'}
+      </button>
+    </div>
   ;
 
   return (
     <div className='activity' key={activityData.key}>
-      <p>{activityData.activity}</p>
-      {done ? doneIcon : pendingIcon}
+      <p className={done && 'line-style'}>{activityData.activity}</p>
+      {active ? didBtn : done ? doneIcon : pendingIcon}
     </div>
   );
 }
 
 export default ActivityCard;
-
-// pending icon, when clicked, toggles "Did it button"
-// Did It button, when clicked, changles styles

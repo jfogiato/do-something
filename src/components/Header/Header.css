@@ -8,7 +8,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1vmin;
+  padding: 2vmin;
   font-family: var(--primary-font);
   background-color: var(--primary-color);
   font-size: 5vmin;

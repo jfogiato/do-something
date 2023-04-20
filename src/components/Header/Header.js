@@ -7,7 +7,7 @@ const Header = () => {
     <Switch>
       <Route exact path='/'></Route>
       <Route path='*'>
-        <header>
+        <header data-cy='header'>
           <Link to='/' className='link'>Do Something.</Link>
           <Link to='/i-want-to' className='link'>Do Something Else.</Link>
         </header>

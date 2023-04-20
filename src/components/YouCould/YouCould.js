@@ -22,8 +22,8 @@ const YouCould = ({ activityObject, addActivity }) => {
 
   const noMatch = 
     <section className='activity-container'>
-      <p>Nothing to do given those contraints. Try something else.</p>
-      <Link data-cy='back-btn' to='/i-want-to' className='uni-btn'>Try again.</Link>
+      <p>Nothing to do given those contraints.</p>
+      <Link data-cy='back-btn' to='/i-want-to' className='uni-btn'>Try something else.</Link>
     </section>
   ;
 

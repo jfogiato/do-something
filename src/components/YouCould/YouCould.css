@@ -22,7 +22,12 @@
   border-radius: var(--border-radius);
 }
 
+.activity-container > p {
+  font-style: italic;
+}
+
 .activity-choose-form {
   display: flex;
   justify-content: space-evenly;
+  width: 100%;
 }

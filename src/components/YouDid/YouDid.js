@@ -4,8 +4,8 @@ import ActivityCard from '../ActivityCard/ActivityCard';
 
 const YouDid = ({ activitiesData }) => {
   
-  const activities = activitiesData.map(activity => {
-    return <ActivityCard activityData={activity} />
+  const activities = activitiesData.map((activity, i) => {
+    return <ActivityCard activityData={activity} key={i}/>
   });
 
   return (

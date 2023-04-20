@@ -10,7 +10,7 @@ const YouDid = ({ activitiesData }) => {
 
   return (
     <section className='you-did'>
-      <h2>Things you want to do.</h2>
+      <h2 data-cy='things-header'>Things you want to do.</h2>
       <section className='activities-container'>
         {activities}
       </section>

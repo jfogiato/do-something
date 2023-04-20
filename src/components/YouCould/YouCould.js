@@ -3,7 +3,7 @@ import './YouCould.css';
 import { Link } from 'react-router-dom';
 
 
-const YouCould = ({ activityObject }) => {
+const YouCould = ({ activityObject, addActivity }) => {
 
   const { activity, link } = activityObject;
 
@@ -14,7 +14,7 @@ const YouCould = ({ activityObject }) => {
         <h3>{activity}</h3>
         {link && <a href={link}>Link</a>}
         <form className='activity-choose-form'>
-          <Link to='/you-did' className='uni-btn'>Do it.</Link>
+          <Link to='/you-did' onClick={addActivity} className='uni-btn'>Do it.</Link>
           <Link to='/i-want-to' className='uni-btn'>Nah.</Link>
         </form>
       </div>

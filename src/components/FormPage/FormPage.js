@@ -45,7 +45,7 @@ const FormPage = ({ getActivity }) => {
   }
 
   return (
-    <form className='form-page'>
+    <form className='form-page' data-cy='form-page'>
       <h2>I want {activitiesDrop} activity that I can do {participantsDrop} and it should be {costDrop}.</h2>
       <Link to='/you-could-do' onClick={submitPreferences} className='uni-btn'>What can I do?</Link>
     </form>

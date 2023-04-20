@@ -19,7 +19,9 @@ const App = () => {
 
   const getActivity = activityPreferences => {
     fetchCall(activityPreferences)
-      .then(data => setCurrentActivity(data));
+      .then(data => {
+        setCurrentActivity(data)
+      });
   }
 
   const addActivity = () => {

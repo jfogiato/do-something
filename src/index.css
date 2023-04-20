@@ -41,8 +41,8 @@ button {
   align-items: center;
 }
 
-.unit-btn:hover {
-  background-color: blue;
+.uni-btn:hover {
+  background-color: var(--secondary-color);
 }
 
 .link {

@@ -15,11 +15,16 @@ const App = () => {
 
   useEffect(() => {
     setActivities(testData);
-  });
+  }, []);
 
   const getActivity = activityPreferences => {
     fetchCall(activityPreferences)
-      .then(data => setCurrentActivity(data))
+      .then(data => setCurrentActivity(data));
+  }
+
+  const addActivity = () => {
+    const newActivities = [currentActivity, ...activities];
+    setActivities(newActivities);
   }
 
   return (
@@ -27,8 +32,8 @@ const App = () => {
       <Header />
       <Route exact path='/' component={Home}/>
       <Route exact path='/i-want-to' render={() => <FormPage getActivity={getActivity}/>}/>
-      <Route exact path='/you-could-do' render={() => <YouCould activityObject={currentActivity}/>}/>
-      <Route exact path='/you-did' render={() => <YouDid activitiesData={testData}/>}/>
+      <Route exact path='/you-could-do' render={() => <YouCould addActivity={addActivity} activityObject={currentActivity}/>}/>
+      <Route exact path='/you-did' render={() => <YouDid activitiesData={activities}/>}/>
     </main>
   );
 }

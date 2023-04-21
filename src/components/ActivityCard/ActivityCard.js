@@ -14,13 +14,20 @@ const ActivityCard = ({ activityData, setActivityStatus }) => {
     setActive(!active);
   }
 
-  const pendingIcon = 
-    <span 
-      className="material-symbols-outlined"
-      data-cy='pending-button'
-      onClick={() => setActive(!active)}
-    >pending
-    </span>
+  const pendingIcon =
+    <div className='btn-container'>
+      <a
+        href={searchLink}
+        className="material-symbols-outlined"
+        >link
+      </a>
+      <span 
+        className="material-symbols-outlined"
+        data-cy='pending-button'
+        onClick={() => setActive(!active)}
+        >pending
+      </span>
+    </div>
   ;
 
   const doneIcon = 
@@ -52,7 +59,7 @@ const ActivityCard = ({ activityData, setActivityStatus }) => {
 
   return (
     <div className='activity'>
-      <a href={searchLink} className={done ? 'line-style' : null} data-cy='activity-name'>{activityData.activity}</a>
+      <p className={done ? 'line-style title' : 'title'} data-cy='activity-name'>{activityData.activity}</p>
       {active ? didBtn : done ? doneIcon : pendingIcon}
     </div>
   );

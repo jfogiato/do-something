@@ -33,8 +33,13 @@ const App = () => {
   }
 
   const addActivity = () => {
-    const newActivities = [currentActivity, ...activities];
-    setLocalActivites(newActivities);
+    const existingActivity = activities.find(act => act.key === currentActivity.key);
+    if(!existingActivity) {
+      const newActivities = [currentActivity, ...activities];
+      setLocalActivites(newActivities);
+      return;
+    }
+    window.alert('You have already saved that activity! Try another.');
   }
 
   const setLocalActivites = updatedActivities => {

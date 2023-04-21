@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './FormPage.css';
+import PropTypes from 'prop-types';
 
 const FormPage = ({ getActivity }) => {
   const [type, setType] = useState('');
@@ -53,3 +54,7 @@ const FormPage = ({ getActivity }) => {
 }
 
 export default FormPage;
+
+FormPage.propTypes = {
+  getActivity: PropTypes.func.isRequired
+}

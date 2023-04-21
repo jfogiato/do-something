@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ActivityCard.css';
+import PropTypes from 'prop-types';
 
 const ActivityCard = ({ activityData }) => {
   const [done, setDone] = useState(false);
@@ -55,3 +56,7 @@ const ActivityCard = ({ activityData }) => {
 }
 
 export default ActivityCard;
+
+ActivityCard.propTypes = {
+  activityData: PropTypes.object.isRequired
+}

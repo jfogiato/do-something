@@ -1,6 +1,7 @@
 import React from 'react';
 import './YouCould.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const YouCould = ({ activityObject, addActivity }) => {
 
@@ -35,3 +36,8 @@ const YouCould = ({ activityObject, addActivity }) => {
 }
 
 export default YouCould;
+
+YouCould.propTypes = {
+  activityObject: PropTypes.object.isRequired,
+  addActivity: PropTypes.func.isRequired
+};

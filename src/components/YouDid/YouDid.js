@@ -1,6 +1,7 @@
 import React from 'react';
 import './YouDid.css';
 import ActivityCard from '../ActivityCard/ActivityCard';
+import PropTypes, { object } from 'prop-types';
 
 const YouDid = ({ activitiesData }) => {
   
@@ -14,8 +15,12 @@ const YouDid = ({ activitiesData }) => {
       <section className='activities-container'>
         {activities}
       </section>
-    </section>
+    </section>  
   );
 }
 
 export default YouDid;
+
+YouDid.propTypes = {
+  activitiesData: PropTypes.arrayOf(object).isRequired
+}

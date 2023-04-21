@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import './ActivityCard.css';
 import PropTypes from 'prop-types';
 
-const ActivityCard = ({ activityData }) => {
-  const [done, setDone] = useState(false);
+const ActivityCard = ({ activityData, setActivityStatus }) => {
+  const [done, setDone] = useState(activityData.done);
   const [active, setActive] = useState(false);
 
-  const searchLink = `https://www.google.com/search?q=${activityData.activity.split(" ").join("+")}`
+  const searchLink = `https://www.google.com/search?q=${activityData.activity.split(" ").join("+")}`;
 
   const toggleDone = () => {
+    setActivityStatus(activityData.key);
     setDone(!done); 
     setActive(!active);
   }
@@ -60,5 +61,6 @@ const ActivityCard = ({ activityData }) => {
 export default ActivityCard;
 
 ActivityCard.propTypes = {
-  activityData: PropTypes.object.isRequired
+  activityData: PropTypes.object.isRequired,
+  setActivityStatus: PropTypes.func.isRequired
 }

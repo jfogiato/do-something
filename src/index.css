@@ -1,5 +1,5 @@
 :root {
-  --primary-font: 'Kanit', sans-serif;
+  --primary-font: 'Chivo Mono', monospace;;
   --primary-font-hvy-wght: 400;
   --primary-font-lgt-wght: 100;
   --secondary-font: 'Dongle', sans-serif;
@@ -30,15 +30,17 @@ button {
 
 .uni-btn {
   font-family: var(--secondary-font);
+  text-align: center;
   background-color: white;
   padding: .5vmin;
   border-radius: var(--border-radius);
   transition: background-color .5s ease;
   text-decoration: none;
+  font-size: calc(1em + 1vmin);
   color: var(--primary-font-color);
-  text-align: center;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .uni-btn:hover {

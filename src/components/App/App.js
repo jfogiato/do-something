@@ -33,8 +33,18 @@ const App = () => {
   }
 
   const addActivity = () => {
-    const newActivities = [currentActivity, ...activities];
-    setLocalActivites(newActivities);
+    const existingActivity = activities.find(act => act.key === currentActivity.key);
+    if(!existingActivity) {
+      const newActivities = [currentActivity, ...activities];
+      setLocalActivites(newActivities);
+      return;
+    }
+    window.alert('You have already saved that activity! Try another.');
+  }
+
+  const removeActivity = key => {
+    const updatedActivites = activities.filter(act => act.key !== key);
+    setLocalActivites(updatedActivites);
   }
 
   const setLocalActivites = updatedActivities => {
@@ -67,7 +77,7 @@ const App = () => {
         <Route exact path='/' component={Home}/>
         <Route exact path='/i-want-to' render={() => <FormPage getActivity={getActivity}/>}/>
         <Route exact path='/you-could-do' render={() => <YouCould addActivity={addActivity} activityObject={currentActivity}/>}/>
-        <Route exact path='/you-did' render={() => <YouDid activitiesData={activities} setActivityStatus={setActivityStatus}/>}/>
+        <Route exact path='/you-did' render={() => <YouDid activitiesData={activities} removeActivity={removeActivity} setActivityStatus={setActivityStatus}/>}/>
         <Route exact path='/404'><NotFound /></Route>
         <Route path='*'><Redirect to='/404'/></Route>
       </Switch>

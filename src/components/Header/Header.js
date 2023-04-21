@@ -9,6 +9,12 @@ const Header = () => {
     <Switch>
       <Route exact path='/'></Route>
       <Route exact path='/404'></Route>
+      <Route path='/i-want-to'>
+        <header data-cy='header'>
+          <Link to='/' className='link'><img className='logo-link'  src={logoImage}/></Link>
+          <Link to='/you-did' className='link smthg-link'>To do.</Link>
+        </header>
+      </Route>
       <Route path='*'>
         <header data-cy='header'>
           <Link to='/' className='link'><img className='logo-link'  src={logoImage}/></Link>

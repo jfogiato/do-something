@@ -10,6 +10,8 @@
 
 .you-could > h2 {
   margin-bottom: 10vmin;
+    font-weight: 600;
+    font-size: calc(2em + 1vw);
 }
 
 .activity-container {
@@ -17,9 +19,11 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--secondary-color);
-  width: 25vw;
+  width: 30vw;
+  height: 30vh;
   padding: 2vmin;
   border-radius: var(--border-radius);
+  justify-content: space-evenly;
 }
 
 .activity-container > p {
@@ -30,4 +34,14 @@
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+}
+
+@media screen and (max-width: 40em){
+  .activity-container {
+    width: 80vw;
+  }
+
+  .activity-container > .uni-btn {
+    padding: 3vmin;
+  }
 }

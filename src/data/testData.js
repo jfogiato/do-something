@@ -1,12 +1,13 @@
 const activities = [
   {
-    "activity": "Think of a new business idea",
+    "activity": "Think of a new business ideaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "type": "recreational",
     "participants": 1,
     "price": 0,
     "link": "",
     "key": "6808057",
-    "accessibility": 0.05
+    "accessibility": 0.05,
+    "done": false
   },
   {
     "activity": "Have a football scrimmage with some friends",

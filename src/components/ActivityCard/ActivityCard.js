@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './ActivityCard.css';
 import PropTypes from 'prop-types';
 
-const ActivityCard = ({ activityData, setActivityStatus }) => {
+const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
   const [done, setDone] = useState(activityData.done);
   const [active, setActive] = useState(false);
 
@@ -14,13 +14,20 @@ const ActivityCard = ({ activityData, setActivityStatus }) => {
     setActive(!active);
   }
 
-  const pendingIcon = 
-    <span 
-      className="material-symbols-outlined"
-      data-cy='pending-button'
-      onClick={() => setActive(!active)}
-    >pending
-    </span>
+  const pendingIcon =
+    <div className='btn-container'>
+      <a
+        href={activityData.link ? activityData.link : searchLink}
+        className="material-symbols-outlined"
+        >link
+      </a>
+      <span 
+        className="material-symbols-outlined"
+        data-cy='pending-button'
+        onClick={() => setActive(!active)}
+        >pending
+      </span>
+    </div>
   ;
 
   const doneIcon = 
@@ -28,7 +35,7 @@ const ActivityCard = ({ activityData, setActivityStatus }) => {
       className="material-symbols-outlined"
       data-cy='done-button'
       onClick={() => setActive(!active)}
-    >check_circle
+      >check_circle
     </span>
   ;
 
@@ -37,13 +44,21 @@ const ActivityCard = ({ activityData, setActivityStatus }) => {
       className="material-symbols-outlined"
       data-cy='cancel-button'
       onClick={() => setActive(!active)}
-    >arrow_back
+      >arrow_back
     </span>
   ;
+
+  const deleteIcon =
+  <span 
+    className="material-symbols-outlined"
+    onClick={() => removeActivity(activityData.key)}
+    >delete_forever
+  </span>
 
   const didBtn =
     <div className='did'>
       {cancelIcon}
+      {deleteIcon}
       <button className='uni-btn' data-cy='done-button' onClick={toggleDone}>
         {done ? 'Didn\'t do it.' : 'Did it.'}
       </button>
@@ -52,7 +67,7 @@ const ActivityCard = ({ activityData, setActivityStatus }) => {
 
   return (
     <div className='activity'>
-      <a href={searchLink} className={done ? 'line-style' : null} data-cy='activity-name'>{activityData.activity}</a>
+      <p className={done ? 'line-style title' : 'title'} data-cy='activity-name'>{activityData.activity}</p>
       {active ? didBtn : done ? doneIcon : pendingIcon}
     </div>
   );

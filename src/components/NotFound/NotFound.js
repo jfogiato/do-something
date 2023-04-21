@@ -2,6 +2,7 @@ import React from 'react';
 import './NotFound.css';
 import { Link } from 'react-router-dom';
 import logoImage from '../../images/DoSomething.png'
+import PropTypes from 'prop-types';
 
 
 const NotFound = ({error, resetError}) => {
@@ -18,3 +19,8 @@ const NotFound = ({error, resetError}) => {
 }
 
 export default NotFound;
+
+NotFound.propTypes = {
+  error: PropTypes.string,
+  resetError: PropTypes.func
+}

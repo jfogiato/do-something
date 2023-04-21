@@ -4,7 +4,7 @@ describe('You Could...', () => {
       status: 200,
       fixture: 'response'
     })
-    .visit('http://localhost:3000/i-want-to')
+    .visit('http://localhost:3000/i-want-to');
     cy.get("[data-cy='type-drop']").select('a busywork');
     cy.get("[data-cy='participants-drop']").select('solo');
     cy.get("[data-cy='cost-drop']").select('free');
@@ -29,5 +29,18 @@ describe('You Could...', () => {
     cy.url().should('contain', '/you-did');
     cy.get("[data-cy='things-header']").should('be.visible');
     cy.get('.activities-container > :nth-child(1)').should('contain', 'Organize your music collection');
+  });
+
+  it('Should have error handling for if a given query returns no results', () => {
+    cy.intercept('GET', 'http://www.boredapi.com/api/activity?type=busywork&participants=1&price=0', {
+      status: 200,
+      body: {error: 'No activity found with those parameters'}
+    });
+    cy.visit('http://localhost:3000/i-want-to');
+    cy.get("[data-cy='type-drop']").select('a busywork');
+    cy.get("[data-cy='participants-drop']").select('solo');
+    cy.get("[data-cy='cost-drop']").select('free');
+    cy.get("[data-cy='get-activity-btn']").click();
+    cy.contains('Nothing to do given those contraints.');
   });
 });

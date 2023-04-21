@@ -3,10 +3,10 @@ import './YouDid.css';
 import ActivityCard from '../ActivityCard/ActivityCard';
 import PropTypes, { object } from 'prop-types';
 
-const YouDid = ({ activitiesData, setActivityStatus }) => {
+const YouDid = ({ activitiesData, setActivityStatus, removeActivity }) => {
   
   const activities = activitiesData.map((activity, i) => {
-    return <ActivityCard setActivityStatus={setActivityStatus} activityData={activity} key={i}/>
+    return <ActivityCard removeActivity={removeActivity} setActivityStatus={setActivityStatus} activityData={activity} key={i}/>
   });
 
   return (

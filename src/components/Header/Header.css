@@ -13,3 +13,7 @@ header {
   background-color: var(--primary-color);
   font-size: 5vmin;
 }
+
+.logo-link {
+  height: 15vh;
+}

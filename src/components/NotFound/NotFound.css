@@ -9,3 +9,21 @@
   align-items: center;
   align-content: center;
 }
+
+.go-home-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.home-link {
+  font-weight: bold;
+}
+
+.home-link:hover {
+  text-decoration: underline;
+}
+
+.mini-logo {
+  transform: scaleX(-1);
+  height: 10vh;
+}

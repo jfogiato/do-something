@@ -4,9 +4,11 @@ import { Link, Route, Switch } from 'react-router-dom';
 import logoImage from '../../images/DoSomething.png';
 
 const Header = () => {
+  
   return (
     <Switch>
       <Route exact path='/'></Route>
+      <Route exact path='/404'></Route>
       <Route path='*'>
         <header data-cy='header'>
           <Link to='/' className='link'><img className='logo-link'  src={logoImage}/></Link>

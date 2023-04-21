@@ -11,7 +11,7 @@ header {
   font-family: var(--primary-font);
   background-color: #eee8df;
   font-size: calc(.5em + 2vmin);
-  box-shadow: 0 1vmin 2vmin 0vmin var(--secondary-color);
+  box-shadow: 1vmin 1vmin 1vmin -1vmin var(--secondary-color);
 }
 
 .smthg-link:hover {

@@ -17,7 +17,7 @@ const ActivityCard = ({ activityData, setActivityStatus }) => {
   const pendingIcon =
     <div className='btn-container'>
       <a
-        href={searchLink}
+        href={activityData.link ? activityData.link : searchLink}
         className="material-symbols-outlined"
         >link
       </a>

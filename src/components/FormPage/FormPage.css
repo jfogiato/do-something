@@ -9,3 +9,17 @@
   align-items: center;
   align-content: center;
 }
+
+select {
+  border: none;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color .5s ease-in;
+  border-radius: var(--border-radius);
+}
+
+select:hover {
+  background-color: var(--secondary-color);
+}

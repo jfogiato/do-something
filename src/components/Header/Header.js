@@ -10,7 +10,7 @@ const Header = () => {
       <Route path='*'>
         <header data-cy='header'>
           <Link to='/' className='link'><img className='logo-link'  src={logoImage}/></Link>
-          <Link to='/i-want-to' className='link'>Do Something Else.</Link>
+          <Link to='/i-want-to' className='link smthg-link'>Do Something Else.</Link>
         </header>
       </Route>
     </Switch>

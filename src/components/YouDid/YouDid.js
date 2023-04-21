@@ -3,10 +3,10 @@ import './YouDid.css';
 import ActivityCard from '../ActivityCard/ActivityCard';
 import PropTypes, { object } from 'prop-types';
 
-const YouDid = ({ activitiesData }) => {
+const YouDid = ({ activitiesData, setActivityStatus }) => {
   
   const activities = activitiesData.map((activity, i) => {
-    return <ActivityCard activityData={activity} key={i}/>
+    return <ActivityCard setActivityStatus={setActivityStatus} activityData={activity} key={i}/>
   });
 
   return (
@@ -22,5 +22,6 @@ const YouDid = ({ activitiesData }) => {
 export default YouDid;
 
 YouDid.propTypes = {
-  activitiesData: PropTypes.arrayOf(object).isRequired
+  activitiesData: PropTypes.arrayOf(object).isRequired,
+  setActivityStatus: PropTypes.func.isRequired
 }

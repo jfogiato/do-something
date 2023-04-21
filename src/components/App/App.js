@@ -6,7 +6,6 @@ import Header from '../Header/Header';
 import FormPage from '../FormPage/FormPage';
 import YouCould from '../YouCould/YouCould';
 import YouDid from '../YouDid/YouDid';
-import testData from '../../data/testData';
 import fetchCall from '../../utilities/apiCalls';
 import NotFound from '../NotFound/NotFound';
 
@@ -29,14 +28,31 @@ const App = () => {
           setError(data);
           return;
         }
-        setCurrentActivity(data);
+        setCurrentActivity({...data, done: false});
       });
   }
 
   const addActivity = () => {
     const newActivities = [currentActivity, ...activities];
-    window.localStorage.setItem('activities', JSON.stringify(newActivities))
-    setActivities(newActivities);
+    setLocalActivites(newActivities);
+  }
+
+  const setLocalActivites = updatedActivities => {
+    window.localStorage.setItem('activities', JSON.stringify(updatedActivities));
+    setActivities(updatedActivities);
+  }
+
+  const setActivityStatus = key => {
+    const updatedActivities = activities.map(act => {
+      if (parseInt(act.key) === parseInt(key)) {
+        return {
+          ...act,
+          done: !act.done
+        };
+      }
+      return act;
+    });
+    setLocalActivites(updatedActivities);
   }
 
   const resetError = () => {
@@ -51,7 +67,7 @@ const App = () => {
         <Route exact path='/' component={Home}/>
         <Route exact path='/i-want-to' render={() => <FormPage getActivity={getActivity}/>}/>
         <Route exact path='/you-could-do' render={() => <YouCould addActivity={addActivity} activityObject={currentActivity}/>}/>
-        <Route exact path='/you-did' render={() => <YouDid activitiesData={activities}/>}/>
+        <Route exact path='/you-did' render={() => <YouDid activitiesData={activities} setActivityStatus={setActivityStatus}/>}/>
         <Route exact path='/404'><NotFound /></Route>
         <Route path='*'><Redirect to='/404'/></Route>
       </Switch>

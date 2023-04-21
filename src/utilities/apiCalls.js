@@ -7,7 +7,7 @@ const fetchCall = ({ type, participants, cost }) => {
     .then(response => {
       return response.ok
         ? response.json()
-        : response.status;
+        : new Error(response.status);
     })
     .catch(error => {
       console.log(error)

@@ -56,3 +56,25 @@
 .line-style {
   text-decoration: line-through!important;
 }
+
+@media screen and (max-width: 40em) {
+  .activity {
+    width: 85%;
+    height: 20vmin;
+    font-size: calc(1em + 4vmin);
+  }
+
+  .title {
+    height: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .did > .uni-btn {
+    height: 2vmin;
+    font-size: calc(.75em + 1vmin);
+    padding: 8vmin;
+  }
+}

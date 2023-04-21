@@ -12,6 +12,7 @@ header {
   background-color: #eee8df;
   font-size: calc(.5em + 2vmin);
   box-shadow: 1vmin 1vmin 1vmin -1vmin var(--secondary-color);
+  z-index: 3;
 }
 
 .smthg-link:hover {

@@ -50,7 +50,7 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
 
   const deleteIcon =
   <span 
-    class="material-symbols-outlined"
+    className="material-symbols-outlined"
     onClick={() => removeActivity(activityData.key)}
     >delete_forever
   </span>

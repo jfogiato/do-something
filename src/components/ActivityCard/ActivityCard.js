@@ -9,7 +9,6 @@ const ActivityCard = ({ activityData, setActivityStatus }) => {
   const searchLink = `https://www.google.com/search?q=${activityData.activity.split(" ").join("+")}`;
 
   const toggleDone = () => {
-    console.log('activityKey - ActCard', activityData.key)
     setActivityStatus(activityData.key);
     setDone(!done); 
     setActive(!active);

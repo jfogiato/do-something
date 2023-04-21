@@ -6,6 +6,8 @@ const ActivityCard = ({ activityData }) => {
   const [done, setDone] = useState(false);
   const [active, setActive] = useState(false);
 
+  const searchLink = `https://www.google.com/search?q=${activityData.activity.split(" ").join("+")}`
+
   const toggleDone = () => {
     setDone(!done); 
     setActive(!active);
@@ -49,7 +51,7 @@ const ActivityCard = ({ activityData }) => {
 
   return (
     <div className='activity'>
-      <p className={done ? 'line-style' : null} data-cy='activity-name'>{activityData.activity}</p>
+      <a href={searchLink} className={done ? 'line-style' : null} data-cy='activity-name'>{activityData.activity}</a>
       {active ? didBtn : done ? doneIcon : pendingIcon}
     </div>
   );

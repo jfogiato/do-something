@@ -16,7 +16,10 @@ const App = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    setActivities(testData);
+    const localActivities = JSON.parse(window.localStorage.getItem('activities'));
+    if (localActivities) {
+      setActivities(localActivities);
+    }
   }, []);
 
   const getActivity = activityPreferences => {
@@ -32,6 +35,7 @@ const App = () => {
 
   const addActivity = () => {
     const newActivities = [currentActivity, ...activities];
+    window.localStorage.setItem('activities', JSON.stringify(newActivities))
     setActivities(newActivities);
   }
 

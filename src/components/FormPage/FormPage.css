@@ -11,7 +11,6 @@
 }
 
 select {
-  appearance: none;
   border: none;
   background-color: var(--primary-color);
   cursor: pointer;

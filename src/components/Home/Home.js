@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className='home' data-cy='home'>
       <div className='header-wrapper'>
-        <img className='logo-image' src={logoImage}/>
+        <img className='logo-image' alt='Do Something Logo' src={logoImage}/>
         <h1 className='logo' data-cy='home-logo'>Do Something.</h1>
       </div>
       <h2 className='blurb-one'>Feeling stuck, bored, unproductive, unmotivated or otherwise uninspired?</h2>

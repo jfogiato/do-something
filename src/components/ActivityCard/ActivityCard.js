@@ -90,7 +90,7 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
 
   return (
     <div className='activity'>
-      <p className={done ? 'line-style title' : 'title'} data-cy='activity-name'>{activityData.activity}</p>
+      <p className={done && active ? 'line-style title-expanded' : done ? 'line-style title' : active ? "title-expanded" : 'title'} data-cy='activity-name'>{activityData.activity}</p>
       {active ? didBtn : done ? doneIcon : pendingIcon}
     </div>
   );

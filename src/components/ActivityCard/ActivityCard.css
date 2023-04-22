@@ -5,7 +5,7 @@
   margin: 1vmin;
   padding: 1vmin;
   width: 50%;
-  height: 6vmin;
+  min-height: 6vmin;
   border-radius: var(--border-radius);
   display: flex;
   flex-direction: row;
@@ -25,6 +25,11 @@
   margin: 0;
 }
 
+.title-expanded {
+  text-overflow: inherit;
+  overflow: scroll;
+}
+
 .did {
   display: flex;
   flex-direction: row;
@@ -39,6 +44,7 @@
 .did > button {
   display: flex;
   height: 4vmin;
+  min-width: 16vmin;
   margin-left: 1.5vmin;
 }
 
@@ -60,7 +66,7 @@
 @media screen and (max-width: 40em) {
   .activity {
     width: 85%;
-    height: 20vmin;
+    min-height: 20vmin;
     font-size: calc(1em + 4vmin);
   }
 
@@ -75,6 +81,6 @@
   .did > .uni-btn {
     height: 2vmin;
     font-size: calc(.75em + 1vmin);
-    padding: 8vmin;
+    padding: 10vmin;
   }
 }

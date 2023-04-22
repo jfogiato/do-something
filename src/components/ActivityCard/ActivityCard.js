@@ -19,6 +19,7 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
       <a
         href={activityData.link ? activityData.link : searchLink}
         target="_blank"
+        rel="noreferrer"
         className="material-symbols-outlined"
         >link
       </a>

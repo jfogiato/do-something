@@ -12,7 +12,7 @@ const Header = () => {
       <Route path='/i-want-to'>
         <header data-cy='header'>
           <Link to='/' className='link'><img className='logo-link'  src={logoImage}/></Link>
-          <Link to='/you-did' className='link smthg-link'>To do.</Link>
+          <Link to='/you-did' data-cy='you-did-btn' className='link smthg-link'>To do.</Link>
         </header>
       </Route>
       <Route path='*'>

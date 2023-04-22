@@ -12,4 +12,8 @@ describe('Home', () => {
     cy.get("[data-cy='go-to-form-btn']").click();
     cy.url().should('include', '/i-want-to');
   });
+
+  it('Should not have a visible header', () => {
+    cy.get('header').should('not.exist');
+  });
 });

@@ -41,4 +41,9 @@ describe('Form', () => {
     cy.get("[data-cy='activity-name']").should('contain', 'Organize your music collection');
   });
 
+  it('Should be able to navigate to YouDid component page', () => {
+    cy.get("[data-cy='you-did-btn']").click();
+    cy.url().should('contain', '/you-did');
+  });
+
 });

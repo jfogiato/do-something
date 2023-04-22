@@ -18,6 +18,7 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
     <div className='btn-container'>
       <a
         href={activityData.link ? activityData.link : searchLink}
+        target="_blank"
         className="material-symbols-outlined"
         >link
       </a>
@@ -51,6 +52,7 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
   const deleteIcon =
   <span 
     className="material-symbols-outlined"
+    data-cy='delete-button'
     onClick={() => removeActivity(activityData.key)}
     >delete_forever
   </span>

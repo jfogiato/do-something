@@ -56,5 +56,6 @@ button {
 @media screen and (max-width: 40em){
   .uni-btn {
     padding: 3vmin;
+    min-width: 30vw;
   }
 }

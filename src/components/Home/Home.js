@@ -12,8 +12,8 @@ const Home = () => {
       </div>
       <h2 className='blurb-one'>Feeling stuck, bored, unproductive, unmotivated or otherwise uninspired?</h2>
       <div>
-        <p className='blurb-two'>Choose your constraints.</p>
-        <p className='blurb-two'>Select an activity.</p>
+        <h3 className='blurb-two'>Choose your constraints.</h3>
+        <h3 className='blurb-two'>Select an activity.</h3>
         <Link to='/i-want-to' className='uni-btn' data-cy='go-to-form-btn'>Do Something.</Link>
       </div>
     </div>

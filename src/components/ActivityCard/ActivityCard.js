@@ -14,6 +14,18 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
     setActive(!active);
   }
 
+  const checkAndActivate = e => {
+    if (e.keyCode === 13 || e.type === 'click') {
+      setActive(!active);
+    }
+  }
+
+  const checkAndRemove = e => {
+    if (e.keyCode === 13 || e.type === 'click') {
+      removeActivity(activityData.key);
+    }
+  }
+
   const pendingIcon =
     <div className='btn-container'>
       <a
@@ -23,38 +35,46 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
         className="material-symbols-outlined"
         >link
       </a>
-      <span 
+      <span
+        tabIndex='0'
         className="material-symbols-outlined"
         data-cy='pending-button'
-        onClick={() => setActive(!active)}
+        onClick={checkAndActivate}
+        onKeyDown={checkAndActivate}
         >pending
       </span>
     </div>
   ;
 
   const doneIcon = 
-    <span 
+    <span
+      tabIndex='0'
       className="material-symbols-outlined"
       data-cy='done-button'
-      onClick={() => setActive(!active)}
+      onClick={checkAndActivate}
+      onKeyDown={checkAndActivate}
       >check_circle
     </span>
   ;
 
   const cancelIcon =
     <span
+      tabIndex='0'
       className="material-symbols-outlined"
       data-cy='cancel-button'
-      onClick={() => setActive(!active)}
+      onClick={checkAndActivate}
+      onKeyDown={checkAndActivate}
       >arrow_back
     </span>
   ;
 
   const deleteIcon =
-  <span 
+  <span
+    tabIndex='0' 
     className="material-symbols-outlined"
     data-cy='delete-button'
-    onClick={() => removeActivity(activityData.key)}
+    onClick={checkAndRemove}
+    onKeyDown={checkAndRemove}
     >delete_forever
   </span>
 

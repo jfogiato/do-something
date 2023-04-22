@@ -11,7 +11,7 @@
 .you-could > h2 {
   margin-bottom: 10vmin;
     font-weight: 600;
-    font-size: calc(2em + 1vw);
+    font-size: calc(3em + 1vw);
 }
 
 .activity-container {
@@ -28,10 +28,15 @@
 
 .activity-container > p {
   font-style: italic;
+  font-size: calc(2em + 1vw);
 }
 
 .activity-container > a {
   font-size: calc(1em + 1vw);
+}
+
+.activity-container > h3 {
+  font-size: calc(2em + 1vw);
 }
 
 .activity-choose-form {

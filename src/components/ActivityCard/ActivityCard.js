@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ActivityCard.css';
 import PropTypes from 'prop-types';
 
@@ -22,7 +22,9 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
 
   const checkAndRemove = e => {
     if (e.keyCode === 13 || e.type === 'click') {
-      removeActivity(activityData.key);
+      if (window.confirm('This will delete the activity - continue?')) {
+        removeActivity(activityData.key);
+      }
     }
   }
 

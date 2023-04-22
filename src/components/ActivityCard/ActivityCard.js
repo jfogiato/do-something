@@ -100,5 +100,6 @@ export default ActivityCard;
 
 ActivityCard.propTypes = {
   activityData: PropTypes.object.isRequired,
-  setActivityStatus: PropTypes.func.isRequired
+  setActivityStatus: PropTypes.func.isRequired,
+  removeActivity: PropTypes.func.isRequired
 }

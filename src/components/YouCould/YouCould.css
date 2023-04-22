@@ -30,6 +30,10 @@
   font-style: italic;
 }
 
+.activity-container > a {
+  font-size: calc(1em + 1vw);
+}
+
 .activity-choose-form {
   display: flex;
   justify-content: space-evenly;

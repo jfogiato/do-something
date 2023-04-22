@@ -12,7 +12,7 @@ const YouCould = ({ activityObject, addActivity }) => {
       <h2>You could...</h2>
       <div className='activity-container'>
         <h3 data-cy='activity-name'>{activity}</h3>
-        {link && <a href={link}>Link</a>}
+        {link && <a target="_blank" rel="noreferrer" href={link}>Link</a>}
         <form className='activity-choose-form'>
           <Link data-cy='do-it-btn' to='/you-did' onClick={addActivity} className='uni-btn'>Do it.</Link>
           <Link data-cy='nah-btn' to='/i-want-to' className='uni-btn'>Nah.</Link>

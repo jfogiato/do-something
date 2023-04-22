@@ -23,5 +23,6 @@ export default YouDid;
 
 YouDid.propTypes = {
   activitiesData: PropTypes.arrayOf(object).isRequired,
-  setActivityStatus: PropTypes.func.isRequired
+  setActivityStatus: PropTypes.func.isRequired,
+  removeActivity: PropTypes.func.isRequired
 }

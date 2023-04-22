@@ -14,46 +14,69 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
     setActive(!active);
   }
 
+  const checkAndActivate = e => {
+    if (e.keyCode === 13 || e.type === 'click') {
+      setActive(!active);
+    }
+  }
+
+  const checkAndRemove = e => {
+    if (e.keyCode === 13 || e.type === 'click') {
+      if (window.confirm('This will delete the activity - continue?')) {
+        removeActivity(activityData.key);
+      }
+    }
+  }
+
   const pendingIcon =
     <div className='btn-container'>
       <a
         href={activityData.link ? activityData.link : searchLink}
         target="_blank"
+        rel="noreferrer"
         className="material-symbols-outlined"
         >link
       </a>
-      <span 
+      <span
+        tabIndex='0'
         className="material-symbols-outlined"
         data-cy='pending-button'
-        onClick={() => setActive(!active)}
+        onClick={checkAndActivate}
+        onKeyDown={checkAndActivate}
         >pending
       </span>
     </div>
   ;
 
   const doneIcon = 
-    <span 
+    <span
+      tabIndex='0'
       className="material-symbols-outlined"
       data-cy='done-button'
-      onClick={() => setActive(!active)}
+      onClick={checkAndActivate}
+      onKeyDown={checkAndActivate}
       >check_circle
     </span>
   ;
 
   const cancelIcon =
     <span
+      tabIndex='0'
       className="material-symbols-outlined"
       data-cy='cancel-button'
-      onClick={() => setActive(!active)}
+      onClick={checkAndActivate}
+      onKeyDown={checkAndActivate}
       >arrow_back
     </span>
   ;
 
   const deleteIcon =
-  <span 
+  <span
+    tabIndex='0' 
     className="material-symbols-outlined"
     data-cy='delete-button'
-    onClick={() => removeActivity(activityData.key)}
+    onClick={checkAndRemove}
+    onKeyDown={checkAndRemove}
     >delete_forever
   </span>
 
@@ -69,7 +92,7 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
 
   return (
     <div className='activity'>
-      <p className={done ? 'line-style title' : 'title'} data-cy='activity-name'>{activityData.activity}</p>
+      <p className={done && active ? 'line-style title-expanded' : done ? 'line-style title' : active ? "title-expanded" : 'title'} data-cy='activity-name'>{activityData.activity}</p>
       {active ? didBtn : done ? doneIcon : pendingIcon}
     </div>
   );
@@ -79,5 +102,6 @@ export default ActivityCard;
 
 ActivityCard.propTypes = {
   activityData: PropTypes.object.isRequired,
-  setActivityStatus: PropTypes.func.isRequired
+  setActivityStatus: PropTypes.func.isRequired,
+  removeActivity: PropTypes.func.isRequired
 }

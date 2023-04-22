@@ -34,10 +34,10 @@ const FormPage = ({ getActivity }) => {
 
   const costDrop = 
     <select data-cy='cost-drop' name='type' value={cost} onChange={e => setCost(e.target.value)}>
-      <option value='' disabled selected>untethered to cost</option>
+      <option value='' disabled selected>irrelevant</option>
       <option value='price=0'>free</option>
-      <option value='minprice=0&maxprice=0.5'>on the cheap</option>
-      <option value='minprice=.5'>cost unprohibitive</option>
+      <option value='minprice=0&maxprice=0.5'>cheap</option>
+      <option value='minprice=.5'>pricey</option>
     </select>
   ;
 
@@ -47,7 +47,7 @@ const FormPage = ({ getActivity }) => {
 
   return (
     <form className='form-page' data-cy='form-page'>
-      <h2 data-cy='form-blurb'>I want {activitiesDrop} activity that I can do {participantsDrop} and it should be {costDrop}.</h2>
+      <h2 data-cy='form-blurb'>I want {activitiesDrop} activity that I can do {participantsDrop} and the cost can be {costDrop}.</h2>
       <Link to='/you-could-do' data-cy='get-activity-btn' onClick={submitPreferences} className='uni-btn'>What can I do?</Link>
     </form>
   );

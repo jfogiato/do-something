@@ -1,7 +1,7 @@
 const fetchCall = ({ type, participants, cost }) => {
   const queryString = (type || participants || cost) && '?';
 
-  const url = `https://www.boredapi.com/api/activity${queryString}${type}${(participants && type) && '&'}${participants}${cost && '&'}${cost}`;
+  const url = `http://www.boredapi.com/api/activity${queryString}${type}${(participants && type) && '&'}${participants}${cost && '&'}${cost}`;
 
   return fetch(url)
     .then(response => {

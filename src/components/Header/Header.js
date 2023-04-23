@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Header.css';
 import { Link, Route, Switch } from 'react-router-dom';
-import logoImage from '../../images/DoSomething.png';
-import logoImagePoke from '../../images/DoSomethingPoke.png';
+import logoImage from '../../images/DoSomethingHeader.png';
+import logoImagePoke from '../../images/DoSomethingHeaderPoke.png';
 
 const Header = () => {
 

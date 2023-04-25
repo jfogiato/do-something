@@ -14,6 +14,9 @@ const App = () => {
   const [currentActivity, setCurrentActivity] = useState({});
   const [error, setError] = useState('');
   const [first, setFirst] = useState(true);
+  const [typeFormValue, setTypeFormValue] = useState('');
+  const [partFormValue, setPartFormValue] = useState('');
+  const [costFormValue, setCostFormValue] = useState('');
 
   useEffect(() => {
     const localActivities = JSON.parse(window.localStorage.getItem('activities'));
@@ -77,7 +80,17 @@ const App = () => {
       {error && <NotFound error={error} resetError={resetError}/>}
       <Switch>
         <Route exact path='/' render={() => <Home first={first}/>}/>
-        <Route exact path='/i-want-to' render={() => <FormPage getActivity={getActivity}/>}/>
+        <Route exact path='/i-want-to' render={() => 
+          <FormPage 
+            getActivity={getActivity} 
+            typeFormValue={typeFormValue}
+            setTypeFormValue={setTypeFormValue}
+            costFormValue={costFormValue}
+            setCostFormValue={setCostFormValue}
+            partFormValue={partFormValue}
+            setPartFormValue={setPartFormValue}
+          />
+        }/>
         <Route exact path='/you-could-do' render={() => !error && <YouCould addActivity={addActivity} activityObject={currentActivity} setFirst={setFirst}/>}/>
         <Route exact path='/you-did' render={() => <YouDid activitiesData={activities} removeActivity={removeActivity} setActivityStatus={setActivityStatus}/>}/>
         <Route exact path='/404'><NotFound /></Route>

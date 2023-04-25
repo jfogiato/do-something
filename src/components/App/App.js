@@ -13,11 +13,13 @@ const App = () => {
   const [activities, setActivities] = useState([]);
   const [currentActivity, setCurrentActivity] = useState({});
   const [error, setError] = useState('');
+  const [first, setFirst] = useState(true);
 
   useEffect(() => {
     const localActivities = JSON.parse(window.localStorage.getItem('activities'));
     if (localActivities) {
       setActivities(localActivities);
+      setFirst(false);
     }
   }, []);
 
@@ -74,9 +76,9 @@ const App = () => {
       <Header />
       {error && <NotFound error={error} resetError={resetError}/>}
       <Switch>
-        <Route exact path='/' component={Home}/>
+        <Route exact path='/' render={() => <Home first={first}/>}/>
         <Route exact path='/i-want-to' render={() => <FormPage getActivity={getActivity}/>}/>
-        <Route exact path='/you-could-do' render={() => !error && <YouCould addActivity={addActivity} activityObject={currentActivity}/>}/>
+        <Route exact path='/you-could-do' render={() => !error && <YouCould addActivity={addActivity} activityObject={currentActivity} setFirst={setFirst}/>}/>
         <Route exact path='/you-did' render={() => <YouDid activitiesData={activities} removeActivity={removeActivity} setActivityStatus={setActivityStatus}/>}/>
         <Route exact path='/404'><NotFound /></Route>
         <Route path='*'><Redirect to='/404'/></Route>

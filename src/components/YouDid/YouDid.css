@@ -1,14 +1,13 @@
 .you-did {
   font-family: var(--primary-font);
   margin: 0;
+  height: 100vh;
 }
 
-.you-did > h2 {
+.you-did-title {
   position: sticky;
   z-index: 3;
   top: 15vh;
-  margin: 1vmin 0 0 0;
-  background-color: var(--primary-color);
 }
 
 .activities-container {

@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './FormPage.css';
 import PropTypes from 'prop-types';
+import ThemeContext from '../../Contexts/ThemeContext';
 
 const FormPage = ({ getActivity, typeFormValue, setTypeFormValue, costFormValue, setCostFormValue, partFormValue, setPartFormValue }) => {
   const [type, setType] = useState(typeFormValue);
   const [participants, setParticipants] = useState(partFormValue);
   const [cost, setCost] = useState(costFormValue);
+  const theme = useContext(ThemeContext);
 
   const activitiesDrop = 
-    <select data-cy='type-drop' name='type' value={type} onChange={e => setType(e.target.value)}>
+    <select className={`${theme}`} data-cy='type-drop' name='type' value={type} onChange={e => setType(e.target.value)}>
       <option value=''>any</option>
       <option value='type=busywork'>a busywork</option>
       <option value='type=charity'>a charitable</option>
@@ -24,7 +26,7 @@ const FormPage = ({ getActivity, typeFormValue, setTypeFormValue, costFormValue,
   ;
 
   const participantsDrop = 
-    <select data-cy='participants-drop' name='type' value={participants} onChange={e => setParticipants(e.target.value)}>
+    <select className={`${theme}`} data-cy='participants-drop' name='type' value={participants} onChange={e => setParticipants(e.target.value)}>
       <option value=''>solo or with others</option>
       <option value='participants=1'>solo</option>
       <option value='participants=2'>with someone else</option>
@@ -33,7 +35,7 @@ const FormPage = ({ getActivity, typeFormValue, setTypeFormValue, costFormValue,
   ;
 
   const costDrop = 
-    <select data-cy='cost-drop' name='type' value={cost} onChange={e => setCost(e.target.value)}>
+    <select className={`${theme}`} data-cy='cost-drop' name='type' value={cost} onChange={e => setCost(e.target.value)}>
       <option value=''>irrelevant</option>
       <option value='price=0'>free</option>
       <option value='minprice=0&maxprice=0.5'>cheap</option>
@@ -49,7 +51,7 @@ const FormPage = ({ getActivity, typeFormValue, setTypeFormValue, costFormValue,
   }
 
   return (
-    <form className='form-page' data-cy='form-page'>
+    <form className={`form-page ${theme}`} data-cy='form-page'>
       <h2 data-cy='form-blurb'>I want {activitiesDrop} activity that I can do {participantsDrop} and the cost can be {costDrop}.</h2>
       <Link to='/you-could-do' data-cy='get-activity-btn' onClick={submitPreferences} className='uni-btn'>What can I do?</Link>
     </form>

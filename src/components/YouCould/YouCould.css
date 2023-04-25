@@ -29,6 +29,7 @@
 .activity-container > p {
   font-style: italic;
   font-size: calc(2em + 1vw);
+  color: black;
 }
 
 .activity-container > a {
@@ -37,6 +38,11 @@
 
 .activity-container > h3 {
   font-size: calc(2em + 1vw);
+  color: black;
+}
+
+.dark-title {
+  color: black;
 }
 
 .activity-choose-form {

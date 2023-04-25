@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import './FormPage.css';
 import PropTypes from 'prop-types';
 
-const FormPage = ({ getActivity }) => {
-  const [type, setType] = useState('');
-  const [participants, setParticipants] = useState('');
-  const [cost, setCost] = useState('');
+const FormPage = ({ getActivity, typeFormValue, setTypeFormValue, costFormValue, setCostFormValue, partFormValue, setPartFormValue }) => {
+  const [type, setType] = useState(typeFormValue);
+  const [participants, setParticipants] = useState(partFormValue);
+  const [cost, setCost] = useState(costFormValue);
 
   const activitiesDrop = 
     <select data-cy='type-drop' name='type' value={type} onChange={e => setType(e.target.value)}>
-      <option value='' disabled selected>any</option>
+      <option value=''>any</option>
       <option value='type=busywork'>a busywork</option>
       <option value='type=charity'>a charitable</option>
       <option value='type=cooking'>a cooking</option>
@@ -25,7 +25,7 @@ const FormPage = ({ getActivity }) => {
 
   const participantsDrop = 
     <select data-cy='participants-drop' name='type' value={participants} onChange={e => setParticipants(e.target.value)}>
-      <option value='' disabled selected>solo or with others</option>
+      <option value=''>solo or with others</option>
       <option value='participants=1'>solo</option>
       <option value='participants=2'>with someone else</option>
       <option value='minparticipants=3&maxpartcipants=100'>with a group of folks</option>
@@ -34,7 +34,7 @@ const FormPage = ({ getActivity }) => {
 
   const costDrop = 
     <select data-cy='cost-drop' name='type' value={cost} onChange={e => setCost(e.target.value)}>
-      <option value='' disabled selected>irrelevant</option>
+      <option value=''>irrelevant</option>
       <option value='price=0'>free</option>
       <option value='minprice=0&maxprice=0.5'>cheap</option>
       <option value='minprice=.5'>pricey</option>
@@ -42,6 +42,9 @@ const FormPage = ({ getActivity }) => {
   ;
 
   const submitPreferences = () => {
+    setTypeFormValue(type);
+    setPartFormValue(participants);
+    setCostFormValue(cost);
     getActivity({type: type, participants: participants, cost: cost});
   }
 
@@ -56,5 +59,11 @@ const FormPage = ({ getActivity }) => {
 export default FormPage;
 
 FormPage.propTypes = {
-  getActivity: PropTypes.func.isRequired
+  getActivity: PropTypes.func.isRequired,
+  typeFormValue: PropTypes.string.isRequired,
+  setTypeFormValue: PropTypes.func.isRequired,
+  costFormValue: PropTypes.string.isRequired,
+  setCostFormValue: PropTypes.func.isRequired,
+  partFormValue: PropTypes.string.isRequired,
+  setPartFormValue: PropTypes.func.isRequired
 }

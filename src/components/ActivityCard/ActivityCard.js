@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ActivityCard.css';
 import PropTypes from 'prop-types';
 
@@ -7,6 +7,11 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
   const [active, setActive] = useState(false);
 
   const searchLink = `https://www.google.com/search?q=${activityData.activity.split(" ").join("+")}`;
+
+  useEffect(() => {
+    setActive(false);
+    setDone(activityData.done);
+  }, [activityData]);
 
   const toggleDone = () => {
     setActivityStatus(activityData.key);

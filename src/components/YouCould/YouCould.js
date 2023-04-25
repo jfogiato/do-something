@@ -3,9 +3,14 @@ import './YouCould.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const YouCould = ({ activityObject, addActivity }) => {
+const YouCould = ({ activityObject, addActivity, setFirst }) => {
 
   const { activity, link } = activityObject;
+
+  const handleSubmit = () => {
+    addActivity();
+    setFirst(false);
+  }
 
   const match =
     <>
@@ -14,7 +19,7 @@ const YouCould = ({ activityObject, addActivity }) => {
         <h3 data-cy='activity-name'>{activity}</h3>
         {link && <a target="_blank" rel="noreferrer" href={link}>Link</a>}
         <form className='activity-choose-form'>
-          <Link data-cy='do-it-btn' to='/you-did' onClick={addActivity} className='uni-btn'>Do it.</Link>
+          <Link data-cy='do-it-btn' to='/you-did' onClick={handleSubmit} className='uni-btn'>Do it.</Link>
           <Link data-cy='nah-btn' to='/i-want-to' className='uni-btn'>Nah.</Link>
         </form>
       </div>
@@ -39,5 +44,6 @@ export default YouCould;
 
 YouCould.propTypes = {
   activityObject: PropTypes.object.isRequired,
-  addActivity: PropTypes.func.isRequired
+  addActivity: PropTypes.func.isRequired,
+  setFirst: PropTypes.func.isRequired
 };

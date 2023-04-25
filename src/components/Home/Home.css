@@ -32,3 +32,9 @@
   height: auto;
   width: auto;
 }
+
+.instructions {
+  margin: 2vmin 0 2vmin 0;
+  font-size: calc(.5em + 1vmin);
+  font-style: italic;
+}

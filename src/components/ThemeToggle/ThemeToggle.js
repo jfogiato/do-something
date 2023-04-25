@@ -8,7 +8,7 @@ const ThemeToggle = ({ toggleTheme }) => {
   const iconTheme = theme === 'dark' && 'toggle-icon-dark';
 
   return (
-    <button onClick={toggleTheme} className={`toggle-icon ${theme}`}>
+    <button onClick={toggleTheme} className='toggle-icon'>
       <span className={`material-symbols-outlined ${iconTheme}`}>{theme === 'light' ? 'dark_mode' : 'light_mode'}</span>
     </button>
   );

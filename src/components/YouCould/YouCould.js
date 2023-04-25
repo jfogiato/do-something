@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './YouCould.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import ThemeContext from '../../Contexts/ThemeContext';
 
 const YouCould = ({ activityObject, addActivity, setFirst }) => {
-
   const { activity, link } = activityObject;
+  const theme = useContext(ThemeContext);
 
   const handleSubmit = () => {
     addActivity();
@@ -34,7 +35,7 @@ const YouCould = ({ activityObject, addActivity, setFirst }) => {
   ;
 
   return (
-    <section className='you-could'>
+    <section className={`you-could ${theme}`}>
         {activity ? match : noMatch}
     </section>
   );

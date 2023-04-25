@@ -12,7 +12,6 @@
 
 select {
   border: none;
-  background-color: var(--primary-color);
   cursor: pointer;
   font-weight: bold;
   text-align: center;

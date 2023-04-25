@@ -1,6 +1,6 @@
 describe('You Did', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://www.boredapi.com/api/activity?type=busywork&participants=1&price=0', {
+    cy.intercept('GET', 'https://www.boredapi.com/api/activity?type=busywork&participants=1&price=0', {
       status: 200,
       fixture: 'response'
     })

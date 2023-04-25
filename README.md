@@ -32,9 +32,10 @@ Big thank you to the [Bored API](https://www.boredapi.com/) for providing the co
 ## Preview of App:
 
 [//]: <>
+![](https://github.com/jfogiato/do-something/blob/main/DoSomethingGifMobile.gif)
 ![](https://github.com/jfogiato/do-something/blob/main/DoSomethingGif1.gif)
 ![](https://github.com/jfogiato/do-something/blob/main/DoSomethingGif2.gif)
-![](https://github.com/jfogiato/do-something/blob/main/DoSomethingGifMobile.gif)
+![](https://github.com/jfogiato/do-something/blob/main/DoSomethingGifDarkMode.gif)
 
 ## Context:
 

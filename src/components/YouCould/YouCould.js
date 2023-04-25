@@ -44,5 +44,6 @@ export default YouCould;
 
 YouCould.propTypes = {
   activityObject: PropTypes.object.isRequired,
-  addActivity: PropTypes.func.isRequired
+  addActivity: PropTypes.func.isRequired,
+  setFirst: PropTypes.func.isRequired
 };

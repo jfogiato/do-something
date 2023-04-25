@@ -8,14 +8,14 @@ const YouDid = ({ activitiesData, setActivityStatus, removeActivity }) => {
   const activities = activitiesData.map((activity, i) => {
     return <ActivityCard removeActivity={removeActivity} setActivityStatus={setActivityStatus} activityData={activity} key={i}/>
   });
-
+  
   return (
     <section className='you-did'>
       <h2 data-cy='things-header'>Things you want to do.</h2>
       <section className='activities-container'>
         {activities}
       </section>
-    </section>  
+    </section>
   );
 }
 

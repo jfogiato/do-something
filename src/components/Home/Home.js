@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import logoImage from '../../images/DoSomething.png';
+import PropTypes from 'prop-types';
 
 const Home = ({ first }) => {
   return (
@@ -30,3 +31,7 @@ const Home = ({ first }) => {
 }
 
 export default Home;
+
+Home.propTypes = {
+  first: PropTypes.bool.isRequired
+}

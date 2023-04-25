@@ -59,5 +59,11 @@ const FormPage = ({ getActivity, typeFormValue, setTypeFormValue, costFormValue,
 export default FormPage;
 
 FormPage.propTypes = {
-  getActivity: PropTypes.func.isRequired
+  getActivity: PropTypes.func.isRequired,
+  typeFormValue: PropTypes.string.isRequired,
+  setTypeFormValue: PropTypes.func.isRequired,
+  costFormValue: PropTypes.string.isRequired,
+  setCostFormValue: PropTypes.func.isRequired,
+  partFormValue: PropTypes.string.isRequired,
+  setPartFormValue: PropTypes.func.isRequired
 }

@@ -8,6 +8,8 @@ import YouCould from '../YouCould/YouCould';
 import YouDid from '../YouDid/YouDid';
 import fetchCall from '../../utilities/apiCalls';
 import NotFound from '../NotFound/NotFound';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import ThemeContext from '../../Contexts/ThemeContext';
 
 const App = () => {
   const [activities, setActivities] = useState([]);
@@ -17,6 +19,7 @@ const App = () => {
   const [typeFormValue, setTypeFormValue] = useState('');
   const [partFormValue, setPartFormValue] = useState('');
   const [costFormValue, setCostFormValue] = useState('');
+  const [theme, setTheme] = useState('light');
 
   useEffect(() => {
     const localActivities = JSON.parse(window.localStorage.getItem('activities'));
@@ -70,33 +73,41 @@ const App = () => {
     setLocalActivites(updatedActivities);
   }
 
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  }
+
   const resetError = () => {
     setError('');
   }
 
   return (
-    <main>
-      <Header />
-      {error && <NotFound error={error} resetError={resetError}/>}
-      <Switch>
-        <Route exact path='/' render={() => <Home first={first}/>}/>
-        <Route exact path='/i-want-to' render={() => 
-          <FormPage 
-            getActivity={getActivity} 
-            typeFormValue={typeFormValue}
-            setTypeFormValue={setTypeFormValue}
-            costFormValue={costFormValue}
-            setCostFormValue={setCostFormValue}
-            partFormValue={partFormValue}
-            setPartFormValue={setPartFormValue}
-          />
-        }/>
-        <Route exact path='/you-could-do' render={() => !error && <YouCould addActivity={addActivity} activityObject={currentActivity} setFirst={setFirst}/>}/>
-        <Route exact path='/you-did' render={() => <YouDid activitiesData={activities} removeActivity={removeActivity} setActivityStatus={setActivityStatus}/>}/>
-        <Route exact path='/404'><NotFound /></Route>
-        <Route path='*'><Redirect to='/404'/></Route>
-      </Switch>
-    </main>
+    <ThemeContext.Provider value={theme}>
+      <main>
+        <Header />
+        {error && <NotFound error={error} resetError={resetError}/>}
+        <Switch>
+          <Route exact path='/' render={() => <Home first={first}/>}/>
+          <Route exact path='/i-want-to' render={() => 
+            <FormPage 
+              getActivity={getActivity} 
+              typeFormValue={typeFormValue}
+              setTypeFormValue={setTypeFormValue}
+              costFormValue={costFormValue}
+              setCostFormValue={setCostFormValue}
+              partFormValue={partFormValue}
+              setPartFormValue={setPartFormValue}
+            />
+          }/>
+          <Route exact path='/you-could-do' render={() => !error && <YouCould addActivity={addActivity} activityObject={currentActivity} setFirst={setFirst}/>}/>
+          <Route exact path='/you-did' render={() => <YouDid activitiesData={activities} removeActivity={removeActivity} setActivityStatus={setActivityStatus}/>}/>
+          <Route exact path='/404'><NotFound /></Route>
+          <Route path='*'><Redirect to='/404'/></Route>
+        </Switch>
+        <ThemeToggle toggleTheme={toggleTheme}/>
+      </main>
+    </ThemeContext.Provider>
   );
 }
 

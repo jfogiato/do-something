@@ -9,6 +9,20 @@
   --border-radius: 5px;
 }
 
+.light {
+  background-color: var(--primary-color);
+  color: var(--primary-font-color);
+}
+
+.dark {
+  background-color: #323234;
+  color: var(--primary-color);
+}
+
+.logo-image-dark {
+  filter: invert(1)
+}
+
 html {
   height: 100vh;
   width: 100vw;
@@ -20,7 +34,6 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--primary-color);
 }
 
 button {
@@ -50,7 +63,6 @@ button {
 
 .link {
   text-decoration: none;
-  color: var(--primary-font-color)
 }
 
 @media screen and (max-width: 40em){

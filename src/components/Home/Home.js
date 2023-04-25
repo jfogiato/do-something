@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import logoImage from '../../images/DoSomething.png';
 import PropTypes from 'prop-types';
+import ThemeContext from '../../Contexts/ThemeContext';
 
 const Home = ({ first }) => {
+  const theme = useContext(ThemeContext);
+
+  const logoStyle = `logo-image ${theme === 'dark' && 'logo-image-dark'}`;
+
   return (
-    <div className='home' data-cy='home'>
+    <div className={`home ${theme}`} data-cy='home'>
       <div className='header-wrapper'>
-        <img className='logo-image' alt='Do Something Logo' src={logoImage}/>
+        <img className={logoStyle} alt='Do Something Logo' src={logoImage}/>
         <h1 className='logo' data-cy='home-logo'>Do Something.</h1>
       </div>
       <h2 className='blurb-one'>Feeling stuck, bored, unproductive, unmotivated or otherwise uninspired?</h2>

@@ -1,6 +1,6 @@
 .not-found {
   font-family: var(--secondary-font);
-  height: 85vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;

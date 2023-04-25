@@ -1,6 +1,6 @@
 describe('You Could...', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'https://www.boredapi.com/api/activity?type=busywork&participants=1&price=0', {
+    cy.intercept('GET', 'http://www.boredapi.com/api/activity?type=busywork&participants=1&price=0', {
       status: 200,
       fixture: 'response'
     })
@@ -32,7 +32,7 @@ describe('You Could...', () => {
   });
 
   it('Should have error handling for if a given query returns no results', () => {
-    cy.intercept('GET', 'https://www.boredapi.com/api/activity?type=busywork&participants=1&price=0', {
+    cy.intercept('GET', 'http://www.boredapi.com/api/activity?type=busywork&participants=1&price=0', {
       status: 200,
       body: {error: 'No activity found with those parameters'}
     });

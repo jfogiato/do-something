@@ -3,3 +3,7 @@
   bottom: 1vmin;
   right: 1vmin;
 }
+
+.toggle-icon-dark {
+  filter: invert(1);
+}

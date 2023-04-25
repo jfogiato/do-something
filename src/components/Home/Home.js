@@ -8,10 +8,12 @@ import ThemeContext from '../../Contexts/ThemeContext';
 const Home = ({ first }) => {
   const theme = useContext(ThemeContext);
 
+  const logoStyle = `logo-image ${theme === 'dark' && 'logo-image-dark'}`;
+
   return (
     <div className={`home ${theme}`} data-cy='home'>
       <div className='header-wrapper'>
-        <img className='logo-image' alt='Do Something Logo' src={logoImage}/>
+        <img className={logoStyle} alt='Do Something Logo' src={logoImage}/>
         <h1 className='logo' data-cy='home-logo'>Do Something.</h1>
       </div>
       <h2 className='blurb-one'>Feeling stuck, bored, unproductive, unmotivated or otherwise uninspired?</h2>

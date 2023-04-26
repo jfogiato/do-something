@@ -1,7 +1,7 @@
 .you-did {
   font-family: var(--primary-font);
   margin: 0;
-  height: auto;
+  height: 100%;
 }
 
 .you-did-title {

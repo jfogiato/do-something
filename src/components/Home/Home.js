@@ -26,7 +26,7 @@ const Home = ({ first }) => {
         <p>It's simple, really...</p>
         <p>1. Give some info on the type of activity you're looking for.</p>
         <p>2. Pick one that you'd like to do.</p>
-        <p>3. Do it now, save it for later - it'll be there for you regardless.</p>
+        <p>3. Do it now, save it for later - it'll be saved for you regardless.</p>
         <p>4. Mark it done.</p>
         <p>5. Do something else.</p>
       </div>

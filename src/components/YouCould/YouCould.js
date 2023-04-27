@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 import ThemeContext from '../../Contexts/ThemeContext';
 
 const YouCould = ({ activityObject, addActivity, setFirst }) => {
-  const { activity, link } = activityObject;
+  
+  const { activity, link, error } = activityObject;
+  
   const theme = useContext(ThemeContext);
 
   const handleSubmit = () => {
@@ -34,9 +36,15 @@ const YouCould = ({ activityObject, addActivity, setFirst }) => {
     </section>
   ;
 
+  const loading = 
+  <section className='activity-container'>
+    <p>Loading....</p>
+  </section>
+;
+
   return (
     <section className={`you-could ${theme}`}>
-        {activity ? match : noMatch}
+      {activity ? match : error ? noMatch : loading}
     </section>
   );
 }

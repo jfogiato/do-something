@@ -8,7 +8,7 @@ type ActivityCardProps = {
   removeActivity: Function
 };
 
-const ActivityCard = ({ activityData, setActivityStatus, removeActivity }: ActivityCardProps) => {
+const ActivityCard: React.FC<ActivityCardProps> = ({ activityData, setActivityStatus, removeActivity }) => {
   const [done, setDone] = useState(activityData.done);
   const [active, setActive] = useState(false);
 

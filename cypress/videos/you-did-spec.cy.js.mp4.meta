@@ -1,0 +1,41 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=664
+END=1502
+title=You Did Should display the users latest activity choice
+[CHAPTER]
+TIMEBASE=1/1000
+START=1583
+END=2343
+title=You Did Should be able to mark an item as done
+[CHAPTER]
+TIMEBASE=1/1000
+START=2246
+END=3104
+title=You Did Should be able to mark an item as un-done
+[CHAPTER]
+TIMEBASE=1/1000
+START=3219
+END=3963
+title=You Did Should be able to change their mind about marking something done
+[CHAPTER]
+TIMEBASE=1/1000
+START=3909
+END=4708
+title=You Did Should be able to visit a link for a given activity
+[CHAPTER]
+TIMEBASE=1/1000
+START=4704
+END=5516
+title=You Did Should be able to delete an activity
+[CHAPTER]
+TIMEBASE=1/1000
+START=5602
+END=6329
+title=You Did Should have data that persists after page refresh
+[CHAPTER]
+TIMEBASE=1/1000
+START=6267
+END=7057
+title=You Did Should have state that persists after page refresh

@@ -1,10 +1,16 @@
 import React, { useContext } from 'react';
 import './YouDid.css';
 import ActivityCard from '../ActivityCard/ActivityCard';
-import PropTypes, { object } from 'prop-types';
 import ThemeContext from '../../Contexts/ThemeContext';
+import { Activity } from '../../models';
 
-const YouDid = ({ activitiesData, setActivityStatus, removeActivity }) => {
+type YouDidProps = {
+  activitiesData: Array<object>,
+  setActivityStatus: Function,
+  removeActivity: Function
+};
+
+const YouDid: React.FC<YouDidProps> = ({ activitiesData, setActivityStatus, removeActivity }) => {
   const theme = useContext(ThemeContext);
 
   const activities = activitiesData.map((activity, i) => {
@@ -22,9 +28,3 @@ const YouDid = ({ activitiesData, setActivityStatus, removeActivity }) => {
 }
 
 export default YouDid;
-
-YouDid.propTypes = {
-  activitiesData: PropTypes.arrayOf(object).isRequired,
-  setActivityStatus: PropTypes.func.isRequired,
-  removeActivity: PropTypes.func.isRequired
-}

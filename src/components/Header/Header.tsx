@@ -5,13 +5,13 @@ import logoImage from '../../images/DoSomethingHeader.png';
 import logoImagePoke from '../../images/DoSomethingHeaderPoke.png';
 import ThemeContext from '../../Contexts/ThemeContext';
 
-const Header = () => {
-  const [hover, setHover] = useState(false);
-  const theme = useContext(ThemeContext);
+const Header: React.FC = () => {
+  const [hover, setHover] = useState<boolean>(false);
+  const theme= useContext<string>(ThemeContext);
 
-  const logoStyle = `logo-link ${theme === 'dark' && 'logo-image-dark'}`;
+  const logoStyle: string = `logo-link ${theme === 'dark' && 'logo-image-dark'}`;
 
-  const toggleHover = () => {
+  const toggleHover: () => void = () => {
     setHover(!hover);
   }
 

@@ -1,10 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './FormPage.css';
-import PropTypes from 'prop-types';
 import ThemeContext from '../../Contexts/ThemeContext';
 
-const FormPage = ({ getActivity, typeFormValue, setTypeFormValue, costFormValue, setCostFormValue, partFormValue, setPartFormValue }) => {
+interface FormPageProps {
+  getActivity: (preferences: {type: string, participants: string, cost: string}) => void,
+  typeFormValue: string,
+  setTypeFormValue: (type: string) => void,
+  costFormValue: string,
+  setCostFormValue: (cost: string) => void,
+  partFormValue: string,
+  setPartFormValue: (participants: string) => void
+}
+
+const FormPage: React.FC<FormPageProps> = ({ getActivity, typeFormValue, setTypeFormValue, costFormValue, setCostFormValue, partFormValue, setPartFormValue }) => {
+  
   const [type, setType] = useState(typeFormValue);
   const [participants, setParticipants] = useState(partFormValue);
   const [cost, setCost] = useState(costFormValue);
@@ -59,13 +69,3 @@ const FormPage = ({ getActivity, typeFormValue, setTypeFormValue, costFormValue,
 }
 
 export default FormPage;
-
-FormPage.propTypes = {
-  getActivity: PropTypes.func.isRequired,
-  typeFormValue: PropTypes.string.isRequired,
-  setTypeFormValue: PropTypes.func.isRequired,
-  costFormValue: PropTypes.string.isRequired,
-  setCostFormValue: PropTypes.func.isRequired,
-  partFormValue: PropTypes.string.isRequired,
-  setPartFormValue: PropTypes.func.isRequired
-}

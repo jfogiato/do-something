@@ -5,7 +5,7 @@ import ThemeContext from '../../Contexts/ThemeContext';
 import { Activity } from '../../models';
 
 type YouDidProps = {
-  activitiesData: Array<object>,
+  activitiesData: Array<Activity>,
   setActivityStatus: Function,
   removeActivity: Function
 };

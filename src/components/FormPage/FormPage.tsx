@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { ReactElement, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './FormPage.css';
 import ThemeContext from '../../Contexts/ThemeContext';
@@ -15,12 +15,12 @@ interface FormPageProps {
 
 const FormPage: React.FC<FormPageProps> = ({ getActivity, typeFormValue, setTypeFormValue, costFormValue, setCostFormValue, partFormValue, setPartFormValue }) => {
   
-  const [type, setType] = useState(typeFormValue);
-  const [participants, setParticipants] = useState(partFormValue);
-  const [cost, setCost] = useState(costFormValue);
-  const theme = useContext(ThemeContext);
+  const [type, setType] = useState<string>(typeFormValue);
+  const [participants, setParticipants] = useState<string>(partFormValue);
+  const [cost, setCost] = useState<string>(costFormValue);
+  const theme = useContext<string>(ThemeContext);
 
-  const activitiesDrop = 
+  const activitiesDrop: ReactElement = 
     <select className={`${theme}`} data-cy='type-drop' name='type' value={type} onChange={e => setType(e.target.value)}>
       <option value=''>any</option>
       <option value='type=busywork'>a busywork</option>
@@ -35,7 +35,7 @@ const FormPage: React.FC<FormPageProps> = ({ getActivity, typeFormValue, setType
     </select>
   ;
 
-  const participantsDrop = 
+  const participantsDrop: ReactElement = 
     <select className={`${theme}`} data-cy='participants-drop' name='type' value={participants} onChange={e => setParticipants(e.target.value)}>
       <option value=''>solo or with others</option>
       <option value='participants=1'>solo</option>
@@ -44,7 +44,7 @@ const FormPage: React.FC<FormPageProps> = ({ getActivity, typeFormValue, setType
     </select>
   ;
 
-  const costDrop = 
+  const costDrop: ReactElement = 
     <select className={`${theme}`} data-cy='cost-drop' name='type' value={cost} onChange={e => setCost(e.target.value)}>
       <option value=''>irrelevant</option>
       <option value='price=0'>free</option>
@@ -53,7 +53,7 @@ const FormPage: React.FC<FormPageProps> = ({ getActivity, typeFormValue, setType
     </select>
   ;
 
-  const submitPreferences = () => {
+  const submitPreferences = () : void => {
     setTypeFormValue(type);
     setPartFormValue(participants);
     setCostFormValue(cost);

@@ -6,7 +6,7 @@ import ThemeContext from '../../Contexts/ThemeContext';
 import { FetchError } from '../../models';
 
 interface NotFoundProps {
-  error: FetchError,
+  error?: FetchError,
   resetError: () => void
 };
 

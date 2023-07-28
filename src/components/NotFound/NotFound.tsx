@@ -2,11 +2,16 @@ import React, { useContext } from 'react';
 import './NotFound.css';
 import { Link } from 'react-router-dom';
 import logoImage from '../../images/DoSomething.png'
-import PropTypes from 'prop-types';
 import ThemeContext from '../../Contexts/ThemeContext';
+import { FetchError } from '../../models';
 
-const NotFound = ({error, resetError}) => {
-  const theme = useContext(ThemeContext);
+interface NotFoundProps {
+  error: FetchError,
+  resetError: () => void
+};
+
+const NotFound: React.FC<NotFoundProps> = ({ error, resetError }) => {
+  const theme = useContext<string>(ThemeContext);
 
   return (
     <section className={`not-found ${theme}`}>
@@ -15,14 +20,9 @@ const NotFound = ({error, resetError}) => {
         <h2>Try <Link to='/' className='link home-link' onClick={resetError}>heading home.</Link></h2>
         <img className='mini-logo' alt='Do Something Logo' src={logoImage}/>
       </div>
-      {error?.message && <p>Error status: {error.message}</p>}
+      {error?.error && <p>Error status: {error.error}</p>}
     </section>
   );
 }
 
 export default NotFound;
-
-NotFound.propTypes = {
-  error: PropTypes.object,
-  resetError: PropTypes.func
-}

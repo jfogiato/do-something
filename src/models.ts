@@ -7,5 +7,11 @@ export interface Activity {
 };
 
 export interface FetchError {
-  error: string
-}
+  error?: string
+};
+
+export interface ActivityPreferences {
+  type: string,
+  participants: string,
+  cost: string,
+};

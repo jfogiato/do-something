@@ -4,3 +4,7 @@ export interface Activity {
   key: string,
   link: string
 };
+
+export interface FetchError {
+  error: string
+}

@@ -1,21 +1,27 @@
-import React, { useContext } from 'react';
+import { ReactElement, useContext } from 'react';
 import './YouCould.css';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import ThemeContext from '../../Contexts/ThemeContext';
+import { Activity } from '../../models';
 
-const YouCould = ({ activityObject, addActivity, setFirst }) => {
+interface YouCouldProps {
+  activityObject: Activity,
+  addActivity: () => void,
+  setFirst: (first: boolean) => void
+};
+
+const YouCould: React.FC<YouCouldProps> = ({ activityObject, addActivity, setFirst }) => {
   
   const { activity, link, error } = activityObject;
   
-  const theme = useContext(ThemeContext);
+  const theme = useContext<string>(ThemeContext);
 
-  const handleSubmit = () => {
+  const handleSubmit = () :  void => {
     addActivity();
     setFirst(false);
   }
 
-  const match =
+  const match: ReactElement =
     <>
       <h2>You could...</h2>
       <div className='activity-container'>
@@ -29,14 +35,14 @@ const YouCould = ({ activityObject, addActivity, setFirst }) => {
     </>
   ;
 
-  const noMatch = 
+  const noMatch: ReactElement = 
     <section className='activity-container'>
       <p>Nothing to do given those contraints.</p>
       <Link data-cy='back-btn' to='/i-want-to' className='uni-btn'>Try something else.</Link>
     </section>
   ;
 
-  const loading = 
+  const loading: ReactElement = 
   <section className='activity-container'>
     <p>Loading....</p>
   </section>
@@ -50,9 +56,3 @@ const YouCould = ({ activityObject, addActivity, setFirst }) => {
 }
 
 export default YouCould;
-
-YouCould.propTypes = {
-  activityObject: PropTypes.object.isRequired,
-  addActivity: PropTypes.func.isRequired,
-  setFirst: PropTypes.func.isRequired
-};

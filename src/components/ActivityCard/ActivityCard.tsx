@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import './ActivityCard.css';
 import { Activity } from '../../models';
 
@@ -9,17 +9,17 @@ type ActivityCardProps = {
 };
 
 const ActivityCard: React.FC<ActivityCardProps> = ({ activityData, setActivityStatus, removeActivity }) => {
-  const [done, setDone] = useState(activityData.done);
-  const [active, setActive] = useState(false);
+  const [done, setDone] = useState<boolean>(activityData.done);
+  const [active, setActive] = useState<boolean>(false);
 
-  const searchLink = `https://www.google.com/search?q=${activityData.activity.split(" ").join("+")}`;
+  const searchLink: string = `https://www.google.com/search?q=${activityData.activity.split(" ").join("+")}`;
 
   useEffect(() => {
     setActive(false);
     setDone(activityData.done);
   }, [activityData]);
 
-  const toggleDone = () => {
+  const toggleDone = () : void => {
     setActivityStatus(activityData.key);
     setDone(!done); 
     setActive(!active);
@@ -41,7 +41,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activityData, setActivitySt
     }
   }
 
-  const pendingIcon =
+  const pendingIcon: ReactElement =
     <div className='btn-container'>
       <a
         href={activityData.link ? activityData.link : searchLink}
@@ -60,7 +60,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activityData, setActivitySt
     </div>
   ;
 
-  const doneIcon = 
+  const doneIcon: ReactElement = 
     <span
       tabIndex={0}
       className="material-symbols-outlined"
@@ -70,7 +70,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activityData, setActivitySt
     </span>
   ;
 
-  const cancelIcon =
+  const cancelIcon: ReactElement =
     <span
       tabIndex={0}
       className="material-symbols-outlined"
@@ -80,7 +80,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activityData, setActivitySt
     </span>
   ;
 
-  const deleteIcon =
+  const deleteIcon: ReactElement =
   <span
     tabIndex={0}
     className="material-symbols-outlined"
@@ -89,7 +89,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activityData, setActivitySt
     >delete_forever
   </span>
 
-  const didBtn =
+  const didBtn: ReactElement =
     <div className='did'>
       {cancelIcon}
       {deleteIcon}

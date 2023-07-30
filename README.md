@@ -49,6 +49,7 @@ Between Tuesday April 18th and Sunday April 23th 2023, I spent around 25 hours b
 
 [//]: <>
 - React (JS, HTML, CSS)
+- Typescript
 - React Router for a multi-page interface.
 - Cypress for E2E testing.
 - RESTful API Integration.

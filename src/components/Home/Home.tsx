@@ -2,13 +2,12 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import logoImage from '../../images/DoSomething.png';
-import PropTypes from 'prop-types';
 import ThemeContext from '../../Contexts/ThemeContext';
 
-const Home = ({ first }) => {
-  const theme = useContext(ThemeContext);
+const Home: React.FC<{ first: boolean }> = ({ first }) => {
+  const theme = useContext<string>(ThemeContext);
 
-  const logoStyle = `logo-image ${theme === 'dark' && 'logo-image-dark'}`;
+  const logoStyle: string = `logo-image ${theme === 'dark' && 'logo-image-dark'}`;
 
   return (
     <div className={`home ${theme}`} data-cy='home'>
@@ -36,7 +35,3 @@ const Home = ({ first }) => {
 }
 
 export default Home;
-
-Home.propTypes = {
-  first: PropTypes.bool.isRequired
-}

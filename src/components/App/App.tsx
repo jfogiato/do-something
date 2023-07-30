@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from '../Home/Home';
 import Header from '../Header/Header';
@@ -10,29 +10,32 @@ import fetchCall from '../../utilities/apiCalls';
 import NotFound from '../NotFound/NotFound';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import ThemeContext from '../../Contexts/ThemeContext';
+import { Activity, FetchError, ActivityPreferences } from '../../models';
 
-const App = () => {
-  const [activities, setActivities] = useState([]);
-  const [currentActivity, setCurrentActivity] = useState({});
-  const [error, setError] = useState('');
-  const [first, setFirst] = useState(true);
-  const [typeFormValue, setTypeFormValue] = useState('');
-  const [partFormValue, setPartFormValue] = useState('');
-  const [costFormValue, setCostFormValue] = useState('');
-  const [theme, setTheme] = useState('light');
+const App: React.FC = () => {
+  const [activities, setActivities] = useState<Activity[]>([]);
+  const [currentActivity, setCurrentActivity] = useState<Activity>();
+  const [error, setError] = useState<FetchError>();
+  const [first, setFirst] = useState<boolean>(true);
+  const [typeFormValue, setTypeFormValue] = useState<string>('');
+  const [partFormValue, setPartFormValue] = useState<string>('');
+  const [costFormValue, setCostFormValue] = useState<string>('');
+  const [theme, setTheme] = useState<string>('light');
 
   useEffect(() => {
-    const localActivities = JSON.parse(window.localStorage.getItem('activities'));
+    const rawActivities = window.localStorage.getItem('activities');
+    if (!rawActivities) return;
+    const localActivities = JSON.parse(rawActivities) as Activity[];
     if (localActivities) {
       setActivities(localActivities);
       setFirst(false);
     }
   }, []);
 
-  const getActivity = activityPreferences => {
+  const getActivity = (activityPreferences: ActivityPreferences) : void => {
     fetchCall(activityPreferences)
       .then(data => {
-        if (data instanceof Error) {
+        if (data.error) {
           setError(data);
           return;
         }
@@ -40,8 +43,8 @@ const App = () => {
       });
   }
 
-  const addActivity = () => {
-    const existingActivity = activities.find(act => act.key === currentActivity.key);
+  const addActivity = () : void => {
+    const existingActivity = activities.find(act => act.key === currentActivity?.key);
     if(!existingActivity) {
       const newActivities = [currentActivity, ...activities];
       setLocalActivites(newActivities);
@@ -50,17 +53,17 @@ const App = () => {
     window.alert('You have already saved that activity! Try another.');
   }
 
-  const removeActivity = key => {
+  const removeActivity = (key : string) => {
     const updatedActivites = activities.filter(act => act.key !== key);
     setLocalActivites(updatedActivites);
   }
 
-  const setLocalActivites = updatedActivities => {
+  const setLocalActivites = (updatedActivities : any) => {
     window.localStorage.setItem('activities', JSON.stringify(updatedActivities));
     setActivities(updatedActivities);
   }
 
-  const setActivityStatus = key => {
+  const setActivityStatus = (key : string) => {
     const updatedActivities = activities.map(act => {
       if (parseInt(act.key) === parseInt(key)) {
         return {
@@ -79,7 +82,7 @@ const App = () => {
   }
 
   const resetError = () => {
-    setError('');
+    setError(undefined);
   }
 
   return (
@@ -102,7 +105,7 @@ const App = () => {
           }/>
           <Route exact path='/you-could-do' render={() => !error && <YouCould addActivity={addActivity} activityObject={currentActivity} setFirst={setFirst}/>}/>
           <Route exact path='/you-did' render={() => <YouDid activitiesData={activities} removeActivity={removeActivity} setActivityStatus={setActivityStatus}/>}/>
-          <Route exact path='/404'><NotFound /></Route>
+          <Route exact path='/404'><NotFound error={error} resetError={resetError}/></Route>
           <Route path='*'><Redirect to='/404'/></Route>
         </Switch>
         <ThemeToggle toggleTheme={toggleTheme}/>

@@ -1,39 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import './ActivityCard.css';
-import PropTypes from 'prop-types';
+import { Activity } from '../../models';
 
-const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
-  const [done, setDone] = useState(activityData.done);
-  const [active, setActive] = useState(false);
+type ActivityCardProps = {
+  activityData: Activity,
+  setActivityStatus: Function,
+  removeActivity: Function
+};
 
-  const searchLink = `https://www.google.com/search?q=${activityData.activity.split(" ").join("+")}`;
+const ActivityCard: React.FC<ActivityCardProps> = ({ activityData, setActivityStatus, removeActivity }) => {
+  const [done, setDone] = useState<boolean>(activityData.done);
+  const [active, setActive] = useState<boolean>(false);
+
+  const searchLink: string = `https://www.google.com/search?q=${activityData.activity.split(" ").join("+")}`;
 
   useEffect(() => {
     setActive(false);
     setDone(activityData.done);
   }, [activityData]);
 
-  const toggleDone = () => {
+  const toggleDone = () : void => {
     setActivityStatus(activityData.key);
     setDone(!done); 
     setActive(!active);
   }
 
-  const checkAndActivate = e => {
-    if (e.keyCode === 13 || e.type === 'click') {
-      setActive(!active);
+  // const checkAndActivate = (e: React.KeyboardEvent<HTMLElement>) => {
+  //   if (e.key === '13' || e.type === 'click') {
+  //     setActive(!active);
+  //   }
+  // }
+
+  const checkAndActivate = (e: React.MouseEvent) : void => {
+    setActive(!active);
+  }
+
+  const checkAndRemove = (e: React.MouseEvent) : void => {
+    if (window.confirm('This will delete the activity - continue?')) {
+      removeActivity(activityData.key);
     }
   }
 
-  const checkAndRemove = e => {
-    if (e.keyCode === 13 || e.type === 'click') {
-      if (window.confirm('This will delete the activity - continue?')) {
-        removeActivity(activityData.key);
-      }
-    }
-  }
-
-  const pendingIcon =
+  const pendingIcon: ReactElement =
     <div className='btn-container'>
       <a
         href={activityData.link ? activityData.link : searchLink}
@@ -43,49 +51,45 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
         >link
       </a>
       <span
-        tabIndex='0'
+        tabIndex={0}
         className="material-symbols-outlined"
         data-cy='pending-button'
         onClick={checkAndActivate}
-        onKeyDown={checkAndActivate}
         >pending
       </span>
     </div>
   ;
 
-  const doneIcon = 
+  const doneIcon: ReactElement = 
     <span
-      tabIndex='0'
+      tabIndex={0}
       className="material-symbols-outlined"
       data-cy='done-button'
       onClick={checkAndActivate}
-      onKeyDown={checkAndActivate}
       >check_circle
     </span>
   ;
 
-  const cancelIcon =
+  const cancelIcon: ReactElement =
     <span
-      tabIndex='0'
+      tabIndex={0}
       className="material-symbols-outlined"
       data-cy='cancel-button'
       onClick={checkAndActivate}
-      onKeyDown={checkAndActivate}
       >arrow_back
     </span>
   ;
 
-  const deleteIcon =
+  const deleteIcon: ReactElement =
   <span
-    tabIndex='0' 
+    tabIndex={0}
     className="material-symbols-outlined"
     data-cy='delete-button'
     onClick={checkAndRemove}
-    onKeyDown={checkAndRemove}
     >delete_forever
   </span>
 
-  const didBtn =
+  const didBtn: ReactElement =
     <div className='did'>
       {cancelIcon}
       {deleteIcon}
@@ -104,9 +108,3 @@ const ActivityCard = ({ activityData, setActivityStatus, removeActivity }) => {
 }
 
 export default ActivityCard;
-
-ActivityCard.propTypes = {
-  activityData: PropTypes.object.isRequired,
-  setActivityStatus: PropTypes.func.isRequired,
-  removeActivity: PropTypes.func.isRequired
-}

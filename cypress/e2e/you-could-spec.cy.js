@@ -34,7 +34,7 @@ describe('You Could...', () => {
   it('Should have error handling for if a given query returns no results', () => {
     cy.intercept('GET', 'https://www.boredapi.com/api/activity?type=busywork&participants=1&price=0', {
       status: 200,
-      body: {error: 'No activity found with those parameters'}
+      body: {error: 'Nothing to do given those contraints.'}
     });
     cy.visit('http://localhost:3000/i-want-to');
     cy.get("[data-cy='type-drop']").select('a busywork');

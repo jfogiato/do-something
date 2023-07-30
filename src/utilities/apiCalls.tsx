@@ -1,4 +1,10 @@
-const fetchCall = ({ type, participants, cost }) => {
+interface FetchProps {
+  type: string | null,
+  participants: string | null,
+  cost: string | null
+}
+
+const fetchCall = ({ type, participants, cost }: FetchProps) => {
   const queryString = (type || participants || cost) && '?';
 
   const url = `https://www.boredapi.com/api/activity${queryString}${type}${(participants && type) && '&'}${participants}${cost && '&'}${cost}`;
@@ -7,7 +13,7 @@ const fetchCall = ({ type, participants, cost }) => {
     .then(response => {
       return response.ok
         ? response.json()
-        : new Error(response.status);
+        : new Error('Something went wrong, please try again.');
     })
     .catch(error => {
       console.log(error)
